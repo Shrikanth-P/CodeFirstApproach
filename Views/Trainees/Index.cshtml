@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CodeFirstApproach.Models.Trainee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index Page of Trainees</h1>
+
+<p>
+    <a asp-action="Create" style="text-decoration:none"><i class="fa-sharp fa-solid fa-file-circle-plus"></i>&nbsp;Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.city)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.city)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.id"><i class="fa-solid fa-pen-to-square"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.id"><i class="fa-sharp fa-solid fa-circle-info"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.id"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
